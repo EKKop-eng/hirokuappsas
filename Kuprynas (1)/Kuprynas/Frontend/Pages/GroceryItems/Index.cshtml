@@ -1,0 +1,39 @@
+﻿@page
+@model Kuprynas.Pages.GroceryItems.IndexModel
+@{
+    ViewData["Title"] = "Grocery Items";
+}
+
+<h1>Grocery Items</h1>
+
+<a asp-page="Create" class="btn btn-primary">Create New Item</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Unit</th>
+            <th>Price</th>
+            <th>Purchased</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.GroceryItems)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Quantity</td>
+                <td>@item.Unit</td>
+                <td>@item.Price</td>
+                <td>@item.Purchased</td>
+                <td>
+                    <a asp-page="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

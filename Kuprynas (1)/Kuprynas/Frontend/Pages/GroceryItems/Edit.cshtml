@@ -1,0 +1,39 @@
+﻿@page "{id:int}"
+@model Kuprynas.Pages.GroceryItems.EditModel
+@{
+    ViewData["Title"] = "Edit Grocery Item";
+}
+
+<h1>Edit Grocery Item</h1>
+
+<form method="post" asp-route-id="@Model.GroceryItem.Id">
+    <!-- Pass the id explicitly -->
+    <div class="form-group">
+        <label asp-for="GroceryItem.Name"></label>
+        <input asp-for="GroceryItem.Name" class="form-control" />
+        <span asp-validation-for="GroceryItem.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="GroceryItem.Category"></label>
+        <input asp-for="GroceryItem.Category" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="GroceryItem.Quantity"></label>
+        <input asp-for="GroceryItem.Quantity" class="form-control" />
+        <span asp-validation-for="GroceryItem.Quantity" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="GroceryItem.Unit"></label>
+        <input asp-for="GroceryItem.Unit" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="GroceryItem.Price"></label>
+        <input asp-for="GroceryItem.Price" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="GroceryItem.Purchased"></label>
+        <input asp-for="GroceryItem.Purchased" type="checkbox" />
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+</form>
